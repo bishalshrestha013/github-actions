@@ -8,15 +8,20 @@ jobs:
     # where the job will run
     runs-on: ubuntu-latest
     steps:
-      # name for what the step does
+      # name for what the step does, name is optional field
       - name: Welcome to first step
         # use for executing command on ubuntu virtual machine
         run: echo "My first GitHub Actions Job"
       - name: Checkout code
         # since we are using actions so, we use "uses" instead of run
-        uses: actions/checkout@v4
-      - name: List files
-        run: ls
+        uses: actions/checkout@v4 # name of action
+      # - name: List files
+      #   run: ls
 
-      - name: Read file
-        run: cat README.md
+      # - name: Read file
+      #   run: cat README.md
+
+      - name: List and read file
+        run: | # pipe operator to run multiple commands
+          ls
+          cat README.md
