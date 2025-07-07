@@ -1,0 +1,31 @@
+name: Multiple jobs example
+
+on: push
+
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Cowsay program
+        run: sudo apt-get install cowsay -y
+
+      - name: Execute cowsay CMD
+        run: cowsay -f dragon "Run for cover, I am a DRAGON! ... RAWR" >> dragon.txt
+
+      - name: Sleep for 30 seconds
+        run: sleep 30
+
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test file exits
+        run: grep -i "dragon" dragon.txt
+
+  deploy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read file
+        run: cat dragon.txt
+
+      - name: Deploy
+        run: echo "Deploying the application with the generated ASCII art ........."
