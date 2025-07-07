@@ -16,12 +16,14 @@ jobs:
         run: sleep 30
 
   test_job:
+    needs: build_job # this job will run after build_job is successfully completed
     runs-on: ubuntu-latest
     steps:
       - name: Test file exits
         run: grep -i "dragon" dragon.txt
 
   deploy_job:
+    needs: test_job
     runs-on: ubuntu-latest
     steps:
       - name: Read file
