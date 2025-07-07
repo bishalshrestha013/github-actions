@@ -12,6 +12,9 @@ jobs:
       - name: Welcome to first step
         # use for executing command on ubuntu virtual machine
         run: echo "My first GitHub Actions Job"
+      - name: Checkout code
+        # since we are using actions so, we use "uses" instead of run
+        uses: actions/checkout@v4
       - name: List files
         run: ls
 
