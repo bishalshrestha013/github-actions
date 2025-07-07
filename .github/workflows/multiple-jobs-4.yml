@@ -16,7 +16,7 @@ jobs:
         run: sleep 2
 
       - name: Upload Dragon text file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dragon-text-file # unique name that can be anything and we can use the name to download the artifact later
           path: dragon.txt
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Downlaod Dragon text file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dragon-text-file
       - name: Test file exits
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Downlaod Dragon text file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dragon-text-file
       - name: Read file
