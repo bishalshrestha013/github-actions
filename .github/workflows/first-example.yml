@@ -1,0 +1,19 @@
+name: First workflow
+
+on: push
+
+jobs:
+  # name for job = first_job
+  first_job:
+    # where the job will run
+    runs-on: ubuntu-latest
+    steps:
+      # name for what the step does
+      - name: Welcome to first step
+        # use for executing command on ubuntu virtual machine
+        run: echo "My first GitHub Actions Job"
+      - name: List files
+        run: ls
+
+      - name: Read file
+        run: cat README.md
